@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Italic;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\partightenfactor0
+
+\f0\b\fs40 \cf0 Simulations on the evolution of conformity\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\f1\b0\fs26 \cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Consider a group of 2
+\f2\i n
+\f1\i0  individuals, 
+\f2\i n
+\f1\i0  males and 
+\f2\i n
+\f1\i0  females.\
+\
+There are 2 diallelic genes. The first one, with alleles 
+\f2\i A
+\f1\i0  and 
+\f2\i a
+\f1\i0 , is expressed in males only and is neutral for fitness. The second one, with alleles 
+\f2\i B
+\f1\i0  and 
+\f2\i b
+\f1\i0 , is expressed in females only: females 
+\f2\i b
+\f1\i0  mate randomly, while females 
+\f2\i B
+\f1\i0  prefer the male phenotype (
+\f2\i A
+\f1\i0  or 
+\f2\i a
+\f1\i0 ) which had higher mating success in the previous generation. For this reason, females 
+\f2\i B
+\f1\i0  are called 
+\f2\i copier females
+\f1\i0 .\
+\
+Specifically, call 
+\f2\i p 
+\f1\i0 the proportion of matings involving males 
+\f2\i A
+\f1\i0  in the previous generation. Then copier females mate with a male 
+\f2\i A
+\f1\i0  with probability:\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f2\i \cf0 p
+\f1\i0 ^beta/(
+\f2\i p
+\f1\i0 ^beta+(1-
+\f2\i p
+\f1\i0 )^beta),\
+\
+where beta is a \'91conformity strength\'92 parameter (steepness of the conformity curve).\
+\
+Each female has two children, one male and one female. The recombination rate of the two genes of interest is 
+\f2\i r
+\f1\i0  (i.e. with probability 1 - 
+\f2\i r
+\f1\i0  children inherit both alleles from the same parent).\
+\
+The meta-population is composed of 
+\f2\i N
+\f1\i0  such groups. In each new generation, a fraction 
+\f2\i d
+\f1\i0  of the children are selected for migration. The migrants exit their group and are redistributed randomly on the spots left vacant by other migrants (males take male spots and females take female spots to prevent gender bias in groups).\
+\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \ul \ulc0 Initial conditions\ulnone \
+\
+Alleles 
+\f2\i A
+\f1\i0  and 
+\f2\i a
+\f1\i0  are randomly allocated in the meta-population: in the first generation individuals are attributed either 
+\f2\i A
+\f1\i0  or 
+\f2\i a
+\f1\i0  with 50:50 probability. Alleles 
+\f2\i B
+\f1\i0  and 
+\f2\i b
+\f1\i0  are also randomly allocated, with an initial proportion 
+\f2\i q
+\f1\i0 0 of allele 
+\f2\i B
+\f1\i0 .\
+\
+\ul Stopping condition\ulnone \
+\
+Simulations stop whenever genetic variation is lost in one of the genes, with a maximum number of generations 
+\f2\i T
+\f1\i0 .}
