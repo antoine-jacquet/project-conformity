@@ -1,0 +1,193 @@
+%----------------------------------------------------------------------
+% Début du document
+%----------------------------------------------------------------------
+
+\documentclass[12pt,a4paper]{article}		% type de document avec options
+
+	\usepackage[top=1in, bottom=1in, left=2.5cm, right=2.5cm]{geometry}	% voir 'Page Layout'	
+	\input{../../../../LaTeX/usual_preamble.tex}		% préambule usuel
+
+	\usepackage{natbib}					% bibliographie (charger avant babel)
+		\bibpunct{(}{)}{,}{a}{}{;}
+	
+	\usepackage[francais, english]{babel}	% placer en dernière option la langue du document
+		\usepackage[T1]{fontenc}			% complète le package
+		\frenchbsetup{}					% options pour babel français
+		\usepackage{numprint}			% nombres dans texte
+	\usepackage[utf8]{inputenc}		% pour reconnaître les accents
+	
+	%\usepackage[urw-garamond,uppercase=upright]{mathdesign}
+	%\usepackage{ebgaramond}	
+
+	\usepackage[justification=centering]{caption}			% package pour les légendes
+		\usepackage{subcaption}
+		%\captionsetup{textfont=it}	% légendes en italique
+	
+	\setlength{\columnsep}{0.2in}			% taille de l'espace du milieu dans le package multicol
+	
+	\usepackage{titlesec}
+		\titleformat*{\section}{\large \bfseries \center}
+		\titleformat*{\subsection}{\center \bfseries}
+		\titleformat*{\subsubsection}{\itshape \center}
+		
+	\usepackage{rotating}
+	\usepackage{afterpage}
+	
+	\usepackage{xspace}	% respecter les espaces en français
+	
+	\usepackage{wrapfig}
+	
+	\usetikzlibrary{patterns}
+	
+	%\numberwithin{equation}{section}		% numéroter les équations selon les sections
+
+%----------------------------------------------------------------------
+% Informations sur le document
+%----------------------------------------------------------------------
+
+\title{\Large \scshape 
+Conformity}
+
+%\author{ A.\ \bsc{Jacquet} \\
+%	\small \href{mailto:antoine.jacquet@tse-fr.eu}{\nolinkurl{antoine.jacquet@tse-fr.eu}}
+%	}
+
+\date{}
+
+
+%-------------------------------------------------------------------------------------------------------------------------------
+% DEBUT DU DOCUMENT
+%-------------------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+
+%----------------------------------------------------------------------
+% Abstract
+%----------------------------------------------------------------------
+
+%\abstract{Hello}
+
+
+%----------------------------------------------------------------------
+% Intro
+%----------------------------------------------------------------------
+
+
+%\begin{abstract} \itshape
+%250-word abstract at the start of the dissertation
+%\end{abstract}
+
+
+\vspace{20pt}
+
+%\noindent
+% Intro
+
+
+
+
+
+%------------------------------------------------------------------------
+% Section 1 – the problem with the prisoner's dilemma
+%------------------------------------------------------------------------
+
+\section{What is conformity?}
+
+\subsection{With two types}
+
+The general framework is that of an infinite population, represented as a continuum $[0;1]$. There are two types $\theta_1$ and $\theta_2$, distributed in proportions $q_1 = q \in [0;1]$ and $q_2 = 1 - q$ respectively. We give two general examples of what mechanisms we have in mind we speaking about conformity.
+
+\paragraph{}
+Conformity can arise in several contexts. One is \emph{transmission processes}, for which type is inherited. Assuming new individuals appear in the population, they are assigned type $\theta_1$ with probability $p_1 = p \in [0;1]$, or type $\theta_2$ with probability $p_2 = 1 - p$. The probability $p$ may depend on several factors, but the one in which we are interested here is the frequency of types in the population, $p : q \mapsto p(q)$. In this case, conformity bias can be understood as a disproportionate likelihood to inherit the majority type in the population: formally, it can be roughly understood as saying that $p(q) > q$ if $q > \frac{1}{2}$.
+
+Another is \emph{learning processes}. Imagine now that type corresponds to a behavioral trait which can be modified by the individual. At a given time, an individual of type $\theta_1$ may choose to remain $\theta_1$ or to become a type $\theta_2$ (idem for type $\theta_2$). The former happens with probability $p_1 = p \in [0;1]$ while the latter happens with probability $p_2 = 1 - p$. Once again, we are interested in the case where $p$ is a function of frequency, i.e.\ $p : q \mapsto p(q)$.
+
+\paragraph{}
+In these contexts, the function $p$ satisfies the equality $p(1 - q) = 1 - p(q)$ for all $q \in [0;1]$. We will furthermore suppose the following.
+
+\begin{rev-ass} $p$ is a continuous, increasing function of $q$.
+\end{rev-ass}
+
+We then define conformity as is done in a large part of the literature.
+
+\begin{rev-def} We say that a transmission process has a \emph{conformity bias} (also called \emph{positive frequency-dependent bias}) if
+		\[ \forall q \geq \frac{1}{2}, \; p(q) \geq q. \]
+
+	Conversely, we say it has an \emph{anti-conformity bias} if this inequality is reversed.
+\end{rev-def}
+
+From this definition and the assumption that $p$ is continuous, simple properties follow.
+
+\begin{rev-cons} A function $p$ which satisfies conformity bias verifies $p(0) = 0$, $p(1) = 1$, $p(\frac{1}{2}) = \frac{1}{2}$, and $\forall q \leq \frac{1}{2}, \; p(q) \leq q$.
+\end{rev-cons}
+
+\begin{proof} \small \color{gray} First note that the definition of conformity bias implies $p(1) = 1$. Then we use that $\forall q \in [0; 1], \; p(1 - q) = 1 - p(q)$, from which we get $p(0) = 0$ (taking $q = 1$), and $\forall q \leq \frac{1}{2}, \; p(q) = 1 - \underbrace{p(1 - q)}_{\mathclap{\geq 1 - q \text{ since } 1 - q \geq \frac{1}{2}}} \leq 1 - (1-q) = q$. By continuity of $p$, it must therefore be the case that $p(\frac{1}{2}) = \frac{1}{2}$.
+\end{proof}
+
+One specific case of conformity bias is therefore when the function $p$ is $s$-shaped. An inverted $s$ instead corresponds to anti-conformity. Finally, the function defined by $p(q) = q$ displays both conformity as well as anti-conformity bias: we will refer to this baseline function as \emph{unbiased}. These three cases are depicted in figure \ref{fig:conformity-bias}.
+
+\begin{figure}[h]
+	\centering
+		\begin{tikzpicture}[domain=0:1,scale=5.5]
+			% b = 1.1, c = 0.8, d = 0.2
+			% frame
+			\draw[->] (0,0) -- (1.1,0) node[right] {$q$} ;
+			\draw[->] (0,0) node[left] {0} -- (0,1.1) ;
+			\draw[-, dashed] (0.5, 0) node[below] {$\frac{1}{2}$} -- (0.5, 0.5) ;
+			\draw[-, dashed] (0, 0.5) -- (0.5, 0.5) ;
+			% box
+			\draw[-,dotted] (0,1) node[left] {1} -- (1,1) ;
+			\draw[-,dotted] (1,0) node[below] {1} -- (1,1) ;
+			% linear conformity: p = q
+			\draw[-] (0,0) -- (1,1) ;
+			% conformity: p ~ tanh(q)
+			\draw[domain=0:1, smooth, thick, red, variable=\q] plot (\q, { (tanh(5*(\q-1/2)) - tanh(5*(-1/2))) / (tanh(5*(1-1/2)) - tanh(5*(-1/2)) }) ;
+			% anticonformity: p ~ tan(q)
+			\draw[domain=0:1, smooth, thick, blue, variable=\q] plot (\q, { (tan(150*(\q-1/2)) - tan(150*(-1/2))) / (tan(150*(1-1/2)) - tan(150*(-1/2))) }) ;
+			% legend
+			\draw[-] (1.3, 0.2) -- (1.4, 0.2) node[right] {\small unbiased function} ;
+			\draw[-, red] (1.3, 0.4) -- (1.4, 0.4) node[right] {\small conformity bias} ;
+			\draw[-, blue] (1.3, 0.3) -- (1.4, 0.3) node[right] {\small anti-conformity bias} ;
+		\end{tikzpicture}
+	\caption{Probability of adopting a trait given type frequency: conformity, anti-conformity, and unbiased function.}
+	\label{fig:conformity-bias}
+	\end{figure}
+
+More about the unbiased case. In the transmission process context, it can for example correspond to the case in which each new individual copies his parents or his mother; or to the case each copies a random individual in the population.
+
+We can also note that the step function $p : q \mapsto \left\{ \begin{smallmatrix} 0 & \text{ if $q < \frac{1}{2}$} \\ \frac{1}{2} & \text{ if $q = \frac{1}{2}$} \\ 1 & \text{ if $q > \frac{1}{2}$} \end{smallmatrix} \right.$ can be indefinitely approached using continuous, conformity-biased functions, and is thereby a limit case of conformity bias.\footnote{For example, consider the sequence $(p_n)_{n \in \N}$ defined by $p_n(q) = \frac{\tanh[n (q - \frac{1}{2})] - \tanh[-\frac{n}{2}]}{\tanh[\frac{n}{2}] - \tanh[-\frac{n}{2}]}$.}
+
+\subsection{With $n$ types}
+
+There are now $n$ types $\theta_1, \dots, \theta_n$ distributed in the population with fractions $q_1, \dots, q_n$ such that $\sum_{i = 1}^n q_i = 1$.
+
+Suppose that the probability of adopting a trait is again a function of the frequency of this trait; furthermore, we assume it is the same for everyone.\footnote{Actually, as in the two-types case, we only need to assume $p$ is the same for $n-1$ types, and it follows that it is also the same for the $n$-th type by the equality $p_n(q_n) = 1 - \sum_{i = 1}^{n-1} p_i(q_i)$.} $p$ is the same for all types, i.e.\ for all $i$, $p_i = p(q_i)$.
+
+\begin{rev-def} We say that the population has a conformity bias if the probability $p_i$ of adopting trait $\theta_i$ is greater than $q_i$ when $\theta_i$ is overrepresented in the population compared to the uniform distribution, i.e.\ $p(q) \geq q$ when $q \geq \frac{1}{n}$.
+\end{rev-def} –> FALSE
+
+\begin{rev-cons} A function $p$ which satisfies conformity bias verifies the following: \begin{enumerate}
+	\item[\itshape (a)] $p(0) = 0$, $p(1) = 1$, and $p(\frac{1}{n}) = \frac{1}{n}$,
+	\item[\itshape (b)] $\forall q \leq \frac{1}{n}, \; p(q) \leq q$,
+	\item[\itshape (c)] $p$ is convex on $[0; \frac{1}{n}]$ and concave on $[\frac{1}{n}; 1]$.
+	\end{enumerate}
+\end{rev-cons}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
