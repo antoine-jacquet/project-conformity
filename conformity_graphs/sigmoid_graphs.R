@@ -163,12 +163,16 @@ png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*
 	B <- 1/c(1.5, 3, 5, 10) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="orange", lwd=1)
 	B <- -c(1/c(1.5, 3, 5, 10), c(1.5, 3, 5, 10)) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="pink", lwd=1)
 	
+	# Sigmoid curve with error rate
+	α <- .3 ; β  <- 4
+	lines(q, α/2 + (1-α)*q^β/(q^β + (1-q)^β), col="dark green", lwd=2, lty=4)
+	
 	# Legend
 	legend(-.02, .95, bg="white", box.col="white",
-		legend=c("β > 1", "0 < β < 1", "β < 0"),
-		col=c("red", "orange", "pink"),
-		lwd=c(2,2,2),
-		lty=c(1,1,1)
+		legend=c("β > 1", "0 < β < 1", "β < 0", "β > 1 with error rate"),
+		col=c("red", "orange", "pink", "dark green"),
+		lwd=c(2,2,2,2),
+		lty=c(1,1,1,4)
 		)
 	title("Fig. 1b", line=2)
 
