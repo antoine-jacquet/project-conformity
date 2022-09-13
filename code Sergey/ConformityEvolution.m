@@ -27,7 +27,7 @@ clear
 close all
 
 if ismac
-    cd '/Users/Antoine/Documents/Cours/Toulouse School of Economics/PhD papers/conformity/code Sergey'
+    cd '/Users/Antoine/Documents/GitHub/project-conformity/code Sergey'
 end
 
 if 1==1
@@ -49,16 +49,16 @@ T = 1000;              % number of generations
 T0 = 1;                % generation when conformity is introduced (minimum 1)
 Runs = 20;             % number of runs
 
-Q0 = .2; %[.1 .2 .5];            % initial frequency of copier females
-D = 0.05; %[0:0.01:.30];             % dispersal rate
-Beta = 5; %[1:.05:3];      % conformity strength parameter
-R = .5; %[0 .05 .1 .5 1];         % recombination rate (0 never recombined; 1 always recombined; .5 baseline)
+Q0 = .2; %[.1 .2 .5];        % initial frequency of copier females
+D = 0:0.005:.10;             % dispersal rate
+Beta = 1:.05:3;              % conformity strength parameter
+R = .2; %[0 .05 .1 .5 1];    % recombination rate (0 never recombined; 1 always recombined; .5 baseline)
 
 group_invasion = 0;    % conformity appears as a cluster (1) or not (0) 
 vs_setprefs = 0;       % competition against set preferences for a given male phenotype (1) or random copying (0)
 
 save_graphs = 0;
-display_figures = 'on';
+display_figures = 'off';
 I = 1:n ;                        % for recombination
 
 
@@ -86,7 +86,8 @@ end
 end
 
 if ismac
-    parpool(2);
+    %parpool(2);
+    ;
 elseif ispc
     parpool(8);
 end
@@ -101,7 +102,8 @@ if vs_setprefs == 0
 
 tic
 
-parfor iComb = 1:nComb
+%parfor iComb = 1:nComb
+for iComb = 1:nComb
     
     currentComb = MatComb(iComb,:);
     
@@ -274,7 +276,7 @@ ylim([0 1])
 png_file = '';
 if save_graphs == 1
     if ismac
-        png_file = sprintf('/Users/Antoine/Documents/Cours/Toulouse School of Economics/PhD papers/conformity/code Sergey/Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        png_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     end
@@ -283,11 +285,9 @@ if save_graphs == 1
 %   print('-dpdf',pdf_file,'-bestfit');
 end
 
-%progressSimulations = progressSimulations + 100/nComb
-
 progressSimulations = progressSimulations + 1
 
-%disp(['Progress: ', num2str(100*progressSimulations/nComb, '%2.2f') ,'% completed'])
+disp(['Progress: ', num2str(100*progressSimulations/nComb, '%2.2f') ,'% completed'])
 
 end
 
@@ -489,7 +489,7 @@ xlabel('time')
 png_file = '';
 if save_graphs == 1
     if ismac
-        png_file = sprintf('/Users/Antoine/Documents/Cours/Toulouse School of Economics/PhD papers/conformity/code Sergey/Figs/setprefs q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        png_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/setprefs q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/setprefs q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     end
@@ -498,7 +498,9 @@ if save_graphs == 1
 %   print('-dpdf',pdf_file,'-bestfit');
 end
 
-%progressSimulations = progressSimulations + 100/nComb
+progressSimulations = progressSimulations + 1
+
+disp(['Progress: ', num2str(100*progressSimulations/nComb, '%2.2f') ,'% completed'])
 
 end
 
@@ -507,7 +509,7 @@ toc
 end
 
 
-delete(gcp('nocreate'));
+%delete(gcp('nocreate'));
 
 
 %% SAVE SIMULATION DATA %%

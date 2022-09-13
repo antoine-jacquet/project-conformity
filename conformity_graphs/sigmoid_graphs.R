@@ -142,7 +142,7 @@ png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*
 		)
 	text(.25, .25, "β = 0", col="red", pos=2)
 	text(.25, .15, "β = 1", col="red", pos=4)
-	title("Fig. 1a", line=2)
+	title("A", line=2)
 	
 	# Plot frame with random copying as baseline
 	plot(q, q, type="n",						# random copying
@@ -174,7 +174,7 @@ png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*
 		lwd=c(2,2,2,2),
 		lty=c(1,1,1,4)
 		)
-	title("Fig. 1b", line=2)
+	title("B", line=2)
 
 dev.off()
 

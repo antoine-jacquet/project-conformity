@@ -1,13 +1,13 @@
 % EVOLUTION OF CONFORMITY
 %
 % First version: May 1, 2020
-% Last version: April 23, 2021
+% Last version: July 1, 2022
 %
 % By A. JACQUET
 % Based on a first draft by S. GAVRILETS
 % 
-% There are 2 diallelic genes one of which with alleles A,a is expressed in males 
-% only and another with alleles B, b in females only; the recombination rate is r.
+% There are 2 diallelic genes, one of which with alleles A,a is expressed in males 
+% only, and the other with alleles B, b in females only; the recombination rate is r.
 % The frequencies of alleles A and B are p and q, respectively. Male trait
 % is neutral. Females b mate randomly. 'Copier' females B prefer males that had high mating
 % success in the previous generation. I am using an S-shaped "conformity
@@ -15,7 +15,7 @@
 % p^beta/(p^beta+(1-p)^beta), where p is their mating success in the previous 
 % generation and beta is the steepness parameter.
 %
-% The population size is split into N groups of 2n individuals each. After
+% The population is split into N groups of 2n individuals each. After
 % mating and reproduction, a fraction d of each group exits the group for
 % migration. The migrants are pooled together by gender and redistributed
 % randomly on the spots left vacant by other migrants (males take male spots
@@ -32,6 +32,10 @@
 clear
 close all
 
+if ismac
+    cd '/Users/Antoine/Documents/GitHub/project-conformity/code'
+end
+
 if 1==1
     rng('shuffle');
     seed=rng;
@@ -44,18 +48,18 @@ end
 
 % Parameters
 ntot = 1000;               % total number of individuals
-N = 10;                    % number of groups
+N = 1;                    % number of groups
 n = ntot/(2*N);            % number of females/males per group
 
 T = 1000;                  % number of generations
 Runs = 20;                 % number of runs
 
 q0 = .2;                   % initial frequency of copier females
-d = 0.05;                  % dispersal rate
-beta = 5;                  % conformity strength parameter
-r = .5;                    % recombination rate (0 never recombined; 1 always recombined; .5 baseline)
+d = 0.02;                  % dispersal rate
+beta = 2.8;                % conformity strength parameter
+r = .2;                    % recombination rate (0 never recombined; 1 always recombined; .5 baseline)
 
-save_graphs = 0;
+save_graphs = 1;
 display_figures = 'on';
 I = 1:n ;                  % for recombination
 
@@ -202,16 +206,19 @@ plot(1:maxTau,dataq);
 ylim([0 1])
 %xlabel('time')
 
-png_file = '';
 if save_graphs == 1
     if ismac
         png_file = sprintf('Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        pdf_file = sprintf('Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.pdf',q0,d,beta,r);
+        eps_file = sprintf('Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.eps',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
+        pdf_file = sprintf('Z:/Conformity/MATLAB/Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.pdf',q0,d,beta,r);
+        eps_file = sprintf('Z:/Conformity/MATLAB/Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.eps',q0,d,beta,r);
     end
-	print(png_file,'-dpng','-r150');
-%   print('-depsc2',eps_file);
-%   print('-dpdf',pdf_file,'-bestfit');
+    print(png_file,'-dpng','-r150');
+    print('-depsc2',eps_file);
+    print('-dpdf',pdf_file,'-bestfit');
 end
 
 

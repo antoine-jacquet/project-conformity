@@ -48,9 +48,17 @@ cmap = ones(cdivs, 3);  % RGB colors
     %cmap(:,2) = 1;
     %cmap(:,3) = 0;
     % Red to Yellow to Green gradient
-    cmap(:,1) = [0:2/cdivs:.8 ones(1,5)];
-    cmap(:,2) = [ones(1,5) 0.8:-2/cdivs:0];
-    cmap(:,3) = 0;
+    %cmap(:,1) = [0:2/cdivs:.8 ones(1,5)];
+    %cmap(:,2) = [ones(1,5) 0.8:-2/cdivs:0];
+    %cmap(:,3) = 0;
+    % Red to Green gradient
+    %cmap(:,1) = fliplr(lowc:step:highc);
+    %cmap(:,2) = lowc:step:highc;
+    %cmap(:,3) = 0;
+    % Red to Yellow to Green gradient
+    cmap(:,1) = 0;
+    cmap(:,2) = fliplr([ones(1,5) 0.8:-2/cdivs:0]);
+    cmap(:,3) = fliplr([0:2/cdivs:.8 ones(1,5)]);
 
     R = unique(r);
 
@@ -76,22 +84,24 @@ for ii=1:length(R)
     ylabel('Conformity strength \beta')
     ylim([min(y)-.1 3+.1])
     xlabel('Dispersal rate d')
-    xlim([-0.02 .32])
+    xlim([-0.005 .105])
 
     colormap(cmap)
     caxis([0 1])
     colorbar
     
     if ismac
-        png_file = sprintf('/Users/Antoine/Documents/Cours/Toulouse School of Economics/PhD papers/conformity/code Sergey/Figs/heatmap_r%1.2f.png',rTemp);
+        png_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/heatmap_r%1.2f.png',rTemp);
+        pdf_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/heatmap_r%1.2f.pdf',rTemp);
+        eps_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/heatmap_r%1.2f.eps',rTemp);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/heatmap_r%1.2f.png',rTemp);
     end
 	print(png_file,'-dpng');
+    print('-depsc2',eps_file);
+    print('-dpdf',pdf_file,'-bestfit');
 
 end
-
-
 
 
 
