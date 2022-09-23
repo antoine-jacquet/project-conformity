@@ -97,10 +97,10 @@ dev.off()
 
 ### FIGURE 1: BOTH GRAPHS SIDE BY SIDE
 
-png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*480, height=480)
+png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*2*480, height=2*480)
 
 	layout(matrix(1:2, nrow=1, ncol=2, byrow=T))
-	par(mgp=c(2.5,.5,0), mar=c(4,4,3,3)+0.1)
+	par(mgp=c(2.5,.5,0), mar=c(4,4,3,3)+0.1, cex=2, lwd=2)
 	
 	# Plot frame with random copying as baseline
 	plot(q, q, type="n",						# random copying
@@ -116,18 +116,18 @@ png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*
 	
 	# Sigmoid curves
 	B <- 1:4/5
-	for (β in B) lines(q, q + β*q*(1-q)*(2*q-1), col="red", lwd=1)
-	lines(q, q + 0*q*(1-q)*(2*q-1), col="red", lwd=2)
-	lines(q, q + 1*q*(1-q)*(2*q-1), col="red", lwd=2)
+	for (β in B) lines(q, q + β*q*(1-q)*(2*q-1), col="red", lwd=2)
+	lines(q, q + 0*q*(1-q)*(2*q-1), col="red", lwd=4)
+	lines(q, q + 1*q*(1-q)*(2*q-1), col="red", lwd=4)
 	
 	# Other example of conformist bias
-	lines(q, q^5/(q^5 + (1-q)^5), col="blue", lwd=2)
+	lines(q, q^5/(q^5 + (1-q)^5), col="blue", lwd=4)
 	
 	# Legend
 	legend(-.02, .96, bty="n",
 		legend=c("Boyd-Richerson sigmoid curves", "Other example of conformist bias"),
 		col=c("red", "blue"),
-		lwd=c(3,3),
+		lwd=c(4,4),
 		lty=c(1,1)
 		)
 	legend(-.009, .88, bty="n",		
@@ -158,27 +158,25 @@ png("~/Documents/GitHub/project-conformity/conformity_graphs/fig1.png", width=2*
 	polygon(x = c(1, 1/2, 1/2), y = c(1, 1, 1/2), col=adjustcolor("gray", alpha.f=.5), border=NA)
 	
 	# Sigmoid curves
-	B <- c(1.5, 3, 5, 10) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="red", lwd=1)
-	β  <- 1 ; lines(q, q^β/(q^β + (1-q)^β), col="black", lwd=2)
-	B <- 1/c(1.5, 3, 5, 10) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="orange", lwd=1)
-	B <- -c(1/c(1.5, 3, 5, 10), c(1.5, 3, 5, 10)) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="pink", lwd=1)
+	B <- c(1.5, 3, 5, 10) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="red", lwd=2)
+	β  <- 1 ; lines(q, q^β/(q^β + (1-q)^β), col="black", lwd=4)
+	B <- 1/c(1.5, 3, 5, 10) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="orange", lwd=2)
+	B <- -c(1/c(1.5, 3, 5, 10), c(1.5, 3, 5, 10)) ; for (β in B) lines(q, q^β/(q^β + (1-q)^β), col="pink", lwd=2)
 	
 	# Sigmoid curve with error rate
 	α <- .3 ; β  <- 4
-	lines(q, α/2 + (1-α)*q^β/(q^β + (1-q)^β), col="dark green", lwd=2, lty=4)
+	lines(q, α/2 + (1-α)*q^β/(q^β + (1-q)^β), col="dark green", lwd=4, lty=4)
 	
 	# Legend
 	legend(-.02, .95, bg="white", box.col="white",
 		legend=c("β > 1", "0 < β < 1", "β < 0", "β > 1 with error rate"),
 		col=c("red", "orange", "pink", "dark green"),
-		lwd=c(2,2,2,2),
+		lwd=2*c(2,2,2,2),
 		lty=c(1,1,1,4)
 		)
 	title("B", line=2)
 
 dev.off()
-
-
 
 
 
