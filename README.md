@@ -6,6 +6,10 @@ Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabri
 <i>**Biological Reviews**</i> (September 2022), doi: 10.1111/brv.12899  
 [<a href="https://doi.org/10.1111/brv.12899">link to open access article</a>]
 
+
+<img title="" alt="" width="70%" height="auto" src="evolution_conformity/Figs/randmatch q0.2 d0.05 b5.00  r0.05.png">
+
+
 `evolution_conformity.md` is a text file explaining briefly the mechanics of the model.
 
 
@@ -21,4 +25,3 @@ The file `heatmap.m` uses these results to produce the success rates graph of Fi
 The R code for the sigmoid curve plots in Figure 1.
 
 
-<img title="" alt="" width="70%" height="auto" src="evolution_conformity/Figs/randmatch q0.2 d0.05 b5.00  r0.05.png">
