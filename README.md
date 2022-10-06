@@ -8,17 +8,17 @@ Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabri
 
 `evolutionConformity.md` is a text file explaining briefly the mechanics of the model.
 
-File `Fig1`: the R code to make the sigmoid curve plots in Figure 1.
+Folder `Fig1`: the R code for the sigmoid curve plots in Figure 1.
 
-File `Fig5`: the MATLAB code to make the evolutionary dynamics graphs in Figure 5.  
-test
+Folder `Fig5`: the MATLAB code for the evolutionary dynamics graphs in Figure 5.  
+The main code for the simulations is in the file `evolutionConformity.m`.
 
-File `Fig4`: the MATLAB code to make the sigmoid curve graphs in Figure 4.
-
-
-
-
+Folder `Fig4`: the MATLAB code for the successful invasion of conformity graphs in Figure 4.  
+The main code is in the file `evolutionConformity.m`, which basically embeds the previous code of `evolutionConformity.m` for Figure 5 in a loop over several parameter values.  
+The file `ConformitySimulations.mat` stores the success rates of previous computations.  
 
 
 
-The code, written in MATLAB, is in the folder `code`. The main file with the simulation is `evolutionConformity.m`. The other files, `randp.m` and `seed.mat`, are necessary to run `evolutionConformity.m` correctly.
+
+
+

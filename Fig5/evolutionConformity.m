@@ -33,7 +33,7 @@ clear
 close all
 
 if ismac
-    cd '/Users/Antoine/Documents/GitHub/project-conformity/code'
+    cd '/Users/Antoine/Documents/GitHub/project-conformity/Fig5'
 end
 
 if 1==1
@@ -48,7 +48,7 @@ end
 
 % Parameters
 ntot = 1000;               % total number of individuals
-N = 1;                     % number of groups
+N = 10;                    % number of groups (N = 1 unstructured population, N > 1 structured population)
 n = ntot/(2*N);            % number of females/males per group
 
 T = 1000;                  % number of generations
