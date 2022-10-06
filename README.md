@@ -1,9 +1,9 @@
-# Evolution of conformity
+# Conformity in mate choice
  
 Code for the paper:
 
-Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabright & Etienne Danchin, "Conformity in mate choice, the overlooked social component of animal and human culture" 
-**Biological Reviews** (September 2022), doi: 10.1111/brv.12899
+Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabright & Etienne Danchin, "Conformity in mate choice, the overlooked social component of animal and human culture," 
+<i>**Biological Reviews**</i> (September 2022), doi: 10.1111/brv.12899
 
 simulations on the evolution of conformity for the paper *Conformity in mate choice, the overlooked social component of animal and human culture* by Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabright, & Etienne Danchin.
 
