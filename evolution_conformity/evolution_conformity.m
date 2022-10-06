@@ -1,4 +1,30 @@
+% EVOLUTION OF CONFORMITY
+%
+% First version: May 1, 2020
+% Last version: July 1, 2022
+%
+% By A. JACQUET
+% Based on a first draft by S. GAVRILETS
 % 
+% There are 2 diallelic genes, one of which with alleles A,a is expressed in males 
+% only, and the other with alleles B, b in females only; the recombination rate is r.
+% The frequencies of alleles A and B are p and q, respectively. Male trait
+% is neutral. Females b mate randomly. 'Copier' females B prefer males that had high mating
+% success in the previous generation. I am using an S-shaped "conformity
+% function" in which probablity of mating with males of a paticular type is
+% p^beta/(p^beta+(1-p)^beta), where p is their mating success in the previous 
+% generation and beta is the steepness parameter.
+%
+% The population is split into N groups of 2n individuals each. After
+% mating and reproduction, a fraction d of each group exits the group for
+% migration. The migrants are pooled together by gender and redistributed
+% randomly on the spots left vacant by other migrants (males take male spots
+% and females take female spots to prevent gender bias).
+%
+% Initial conditions are such that alleles A and a are at 50:50 proportions
+% whereas copier females are present at frequency q0 (overall, may differ between groups).
+% Simulations stop whenever genetic variation is lost in one of the genes.
+%
 %
 % First version: May 1, 2020
 % Last version: July 1, 2022
@@ -10,7 +36,7 @@ clear
 close all
 
 if ismac
-    cd '/Users/Antoine/Documents/GitHub/project-conformity/code Sergey'
+    cd '/Users/Antoine/Documents/GitHub/project-conformity/evolution_conformity'
 end
 
 if 1==1
@@ -259,7 +285,7 @@ ylim([0 1])
 png_file = '';
 if save_graphs == 1
     if ismac
-        png_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        png_file = sprintf('Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     end
@@ -472,7 +498,7 @@ xlabel('time')
 png_file = '';
 if save_graphs == 1
     if ismac
-        png_file = sprintf('/Users/Antoine/Documents/GitHub/project-conformity/code Sergey/Figs/setprefs q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        png_file = sprintf('Figs/setprefs q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/setprefs q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     end
@@ -497,9 +523,9 @@ end
 
 %% SAVE SIMULATION DATA %%
 
-load('ConformitySimulations.mat', 'ConformitySimulations')
+load('results_simulations.mat', 'results_simulations')
 ConformitySimulations = [ConformitySimulations; MatComb];
-save('ConformitySimulations.mat', 'ConformitySimulations')
+save('results_simulations.mat', 'results_simulations')
 
 
 
