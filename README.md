@@ -21,4 +21,4 @@ The file `heatmap.m` uses these results to produce the success rates graph of Fi
 The R code for the sigmoid curve plots in Figure 1.
 
 
-
+![Alt text](evolution_conformity/Figs/randmatch q0.2 d0.05 b5.00  r0.05.png "a title")
