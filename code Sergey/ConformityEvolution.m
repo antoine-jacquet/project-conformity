@@ -1,24 +1,7 @@
-% May 1, 2020: revising code by S. Gavrilets on evolution of conformity 
-% First draft by S. Gavrilets, modifications by A. Jacquet
-% There are 2 diallelic genes one of which with alleles A,a is expressed in males 
-% only and another with alleles B, b in females only; the recombination rate is r.
-% The frequencies of alleles A and B are p and q, respectively. Male trait
-% is neutral. Females b mate randomly. 'Copier' females B prefer males that had high mating
-% success in the previous generation. I am using an S-shaped "conformity
-% function" in which probablity of mating with males of a paticular type is
-% p^beta/(p^beta+(1-p)^beta), where p is their mating success in the previous 
-% generation and beta is the steepness parameter.
+% 
 %
-% The population size is split into N groups of 2n individuals each. After
-% mating and reproduction, a fraction d of each group exits the group for
-% migration. The migrants are pooled together by gender and redistributed
-% randomly on the spots left vacant by other migrants (males take male spots
-% and females take female spots to prevent gender bias).
-%
-% Initial conditions are such that alleles A and a are at 50:50 proportions
-% whereas copier females are present at frequency q0 (overall, may differ between groups).
-% Simulations stop whenever genetic variation is lost in one of the genes.
-%
+% First version: May 1, 2020
+% Last version: July 1, 2022
 
 
 %% INTRO %%
