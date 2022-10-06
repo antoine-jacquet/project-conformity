@@ -14,8 +14,8 @@ Folder `Fig5`: the MATLAB code for the evolutionary dynamics graphs in Figure 5.
 The main code for the simulations is in the file `evolutionConformity.m`.
 
 Folder `Fig4`: the MATLAB code for the successful invasion of conformity graphs in Figure 4.  
-The main code is in the file `evolutionConformity.m`, which basically embeds the previous code of `evolutionConformity.m` for Figure 5 in a loop over several parameter values.  
-The file `ConformitySimulations.mat` stores the success rates of previous computations.  
+The main code is in the file `evolutionConformity.m`, which basically embeds the code for Figure 5 in a loop over several parameter values.  
+The file `ConformitySimulations.mat` stores the results of previous simulations.  
 
 
 
