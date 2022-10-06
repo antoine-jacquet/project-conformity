@@ -285,7 +285,7 @@ ylim([0 1])
 png_file = '';
 if save_graphs == 1
     if ismac
-        png_file = sprintf('Figs/randmatch q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        png_file = sprintf('Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/randmatch q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     end
@@ -498,7 +498,7 @@ xlabel('time')
 png_file = '';
 if save_graphs == 1
     if ismac
-        png_file = sprintf('Figs/setprefs q%2.1f d%2.2f b%3.2f  r%2.2f.png',q0,d,beta,r);
+        png_file = sprintf('Figs/setprefs q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     elseif ispc
         png_file = sprintf('Z:/Conformity/MATLAB/Figs/setprefs q%2.1f d%2.2f b%3.2f r%2.2f.png',q0,d,beta,r);
     end
