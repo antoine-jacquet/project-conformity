@@ -8,11 +8,11 @@ Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabri
 
 `evolutionConformity.md` is a text file explaining briefly the mechanics of the model.
 
-File `Fig1': the R code which was used to make the sigmoid curve graphs in Figure 1.
+File `Fig1`: the R code which was used to make the sigmoid curve graphs in Figure 1.
 
-File `Fig5': the MATLAB code which was used to make the sigmoid curve graphs in Figure 1.
+File `Fig5`: the MATLAB code which was used to make the sigmoid curve graphs in Figure 1.
 
-File `Fig6': the MATLAB code which was used to make the sigmoid curve graphs in Figure 1.
+File `Fig6`: the MATLAB code which was used to make the sigmoid curve graphs in Figure 1.
 
 
 
