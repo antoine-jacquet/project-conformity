@@ -1,7 +1,8 @@
-# Code: Conformity in mate choice [[link to article](https://doi.org/10.1111/brv.12899)]
+# Code: Conformity in mate choice
 
 Sabine Nöbel, Antoine Jacquet, Guillaume Isabel, Arnaud Pocheville, Paul Seabright & Etienne Danchin   "Conformity in mate choice, the overlooked social component of animal and human culture"  
 <i>**Biological Reviews**</i> (September 2022), doi: 10.1111/brv.12899  
+ [[link to article](https://doi.org/10.1111/brv.12899)]
 
 
 <img title="" alt="" width="70%" height="auto" src="evolution_conformity/Figs/randmatch q0.2 d0.05 b5.00  r0.05.png">
